@@ -67,6 +67,7 @@ def search_fifo(problem: hanoi_states.ProblemHanoi):
 
     while len(fifo) > 0:
         node = fifo.pop()
+        print(node)
         explored.append(node.state)
 
         if problem.goal_test(node.state):
@@ -85,6 +86,7 @@ def search_lifo(problem: hanoi_states.ProblemHanoi):
 
     while len(lifo) > 0:
         node = lifo.pop()
+        #print(node)
         explored.append(node.state)
 
         if problem.goal_test(node.state):

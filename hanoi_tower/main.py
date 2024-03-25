@@ -33,10 +33,10 @@ def main():
     #last_node = breadth_first_tree_search(problem_hanoi)
 
     # Resuelve el problema utilizando búsqueda en anchura, pero con memoria que recuerda caminos ya recorridos.
-    last_node = breadth_first_graph_search(problem_hanoi, display=True)
+    #last_node = breadth_first_graph_search(problem_hanoi, display=True)
 
     # Resuelve el problema utilizando colas FIFO
-    last_node = search_fifo(problem_hanoi)
+    #last_node = search_fifo(problem_hanoi)
 
     # Resuelve el problema utilizando colas LIFO
     last_node = search_lifo(problem_hanoi)
