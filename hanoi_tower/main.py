@@ -4,7 +4,9 @@ from hanoi_states import StatesHanoi, ProblemHanoi
 from tree_hanoi import NodeHanoi
 from search import (  # Importa las funciones de búsqueda del módulo search
     breadth_first_tree_search,
-    breadth_first_graph_search
+    breadth_first_graph_search,
+    search_fifo,
+    search_lifo
 )
 
 def main():
@@ -32,6 +34,12 @@ def main():
 
     # Resuelve el problema utilizando búsqueda en anchura, pero con memoria que recuerda caminos ya recorridos.
     last_node = breadth_first_graph_search(problem_hanoi, display=True)
+
+    # Resuelve el problema utilizando colas FIFO
+    last_node = search_fifo(problem_hanoi)
+
+    # Resuelve el problema utilizando colas LIFO
+    last_node = search_lifo(problem_hanoi)
 
     _, memory_peak = tracemalloc.get_traced_memory()
     memory_peak /= 1024*1024

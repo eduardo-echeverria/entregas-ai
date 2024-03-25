@@ -1,6 +1,7 @@
 from collections import deque
 import tree_hanoi
 import hanoi_states
+from tree_hanoi import NodeHanoi
 
 
 def breadth_first_tree_search(problem: hanoi_states.ProblemHanoi):
@@ -59,3 +60,38 @@ def breadth_first_graph_search(problem: hanoi_states.ProblemHanoi, display: bool
 
     return None
 
+def search_fifo(problem: hanoi_states.ProblemHanoi):
+    node_root = NodeHanoi(problem.initial)
+    fifo = [node_root]
+    explored = []
+
+    while len(fifo) > 0:
+        node = fifo.pop()
+        explored.append(node.state)
+
+        if problem.goal_test(node.state):
+            return node
+        
+        for child in node.expand(problem):
+            if child.state not in explored:
+                fifo.insert(0, child)
+
+    return None
+
+def search_lifo(problem: hanoi_states.ProblemHanoi):
+    node_root = NodeHanoi(problem.initial)
+    lifo = [node_root]
+    explored = []
+
+    while len(lifo) > 0:
+        node = lifo.pop()
+        explored.append(node.state)
+
+        if problem.goal_test(node.state):
+            return node
+        
+        for child in node.expand(problem):
+            if child.state not in explored:
+                lifo.append(child)
+
+    return None
