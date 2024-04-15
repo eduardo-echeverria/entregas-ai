@@ -187,8 +187,8 @@ print(f"La varianza respecto del target es: {np.var(y_train)}")
 
 #Otenemos las predicciones del modelo
 y_pred = regresion.predict(X_test_scaled)
+y_pred= pd.Series(y_pred, name=california_housing['target_names'][0])
 print(f"La prediccion del modelo es: {y_pred}")
-
 
 """
 Pregunta 4)
