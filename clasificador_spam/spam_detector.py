@@ -86,7 +86,8 @@ X_train_scaled = pd.DataFrame(X_train_scaled, columns=X.columns)
 X_test_scaled = pd.DataFrame(X_test_scaled, columns=X.columns)
 
 regresion = LogisticRegression()
-y_pred_reg = regresion.fit(X_train_scaled, y_train).predict(X_test)
+# Correccion efectuada en la siguiente linea. Se reemplazo 'X_test' por 'X_test_scaled'
+y_pred_reg = regresion.fit(X_train_scaled, y_train).predict(X_test_scaled)
 
 
 """
